@@ -135,7 +135,7 @@ class NameTest
     @Test
     public void containsAdminLastName() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Name name = new Name("Tiger", "admin");
+            Name name = new Name("Tiger", "adminWoods");
         });
 
         String expectedMessage = "bad last name!";

@@ -51,7 +51,8 @@ public class Name
      */
     private boolean isInValidFirstLastName(final String name)
     {
-        return name == null || name.isBlank() || name.length() >= MAX_NAME_LENGTH || name.equalsIgnoreCase(INVALID_NAME);
+        return name == null || name.isBlank() || name.length() >= MAX_NAME_LENGTH ||
+                name.contains(INVALID_NAME);
     }
 
     /**
