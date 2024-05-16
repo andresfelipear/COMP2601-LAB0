@@ -1,5 +1,5 @@
 /**
- * BankAccount
+ * BankAccount class represents a bank account associated with a bank client.
  *
  * @author @author Andres Arevalo & Dustin & Shamin
  * @version 1.0
@@ -12,6 +12,8 @@ public class BankAccount
     private double           balanceUsd;
     private int              pin;
     private final String     accountNumber;
+
+    private static final int ACCOUNT_LENGTH = 7;
 
     /**
      * Constructs a BankAccount object with the given client, account opened date, balance, PIN, and account number.
@@ -28,11 +30,35 @@ public class BankAccount
                        int pin,
                        final String accountNumber)
     {
+        if(!isValidAccountNumber())
+        {
+            throw new IllegalArgumentException(
+                    String.format("Invalid account number. It should have exactly %s letters.",
+                                  ACCOUNT_LENGTH));
+        }
+
         this.client = client;
         this.accountOpened = accountOpened;
         this.balanceUsd = balanceUsd;
         this.pin = pin;
         this.accountNumber = accountNumber;
+    }
+
+
+    /**
+     * Checks if the account number is valid.
+     * An account number is considered valid if it:
+     * - Has a length equal to ACCOUNT_LENGTH.
+     * - Contains only letters (uppercase or lowercase).
+     * @return true if the account number is valid, false otherwise.
+     */
+    private boolean isValidAccountNumber()
+    {
+        final String regex;
+
+        regex = "^[a-zA-Z]+$"; //Validates if starts and end with letter any case.
+
+        return accountNumber.length() == ACCOUNT_LENGTH && accountNumber.matches(regex);
     }
 
     /**
