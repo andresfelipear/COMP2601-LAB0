@@ -37,7 +37,7 @@ public class Date
 
     // CONSTANTS - YEARS
     private static final int INITIAL_YEAR = 1;
-    private static final int CURRENT_YEAR = 2024;
+    public static final int CURRENT_YEAR = 2024;
 
     private static final int EXACT_DIVISION = 0;
 
@@ -225,6 +225,48 @@ public class Date
             case WEDNESDAY -> "Wednesday";
             case THURSDAY -> "Thursday";
             case FRIDAY -> "Friday";
+            default -> "Invalid day";
+        };
+    }
+
+    /**
+     *
+     * @return the full date in the format dayWeek, FullMonth dd, yyyy!
+     * (e.g "friday, March 14, 1879")
+     */
+    public String getFullDate()
+    {
+        final String fullDate;
+
+        fullDate = String.format("%s, %s %s, %s",
+                                 getDayOfWeek(),
+                                 getFullMonth(),
+                                 getDay(),
+                                 getYear());
+
+        return fullDate;
+    }
+
+    /**
+     * Get the month in format MM and return it as a String
+     * @return Full month as a string (e.g. 01 -> January)
+     */
+    private String getFullMonth()
+    {
+        return switch(getMonth())
+        {
+            case JANUARY -> "January";
+            case FEBRUARY -> "FEBRUARY";
+            case MARCH -> "March";
+            case APRIL -> "April";
+            case MAY -> "May";
+            case JUNE -> "June";
+            case JULY -> "July";
+            case AUGUST -> "August";
+            case SEPTEMBER -> "September";
+            case OCTOBER -> "October";
+            case NOVEMBER -> "November";
+            case DECEMBER -> "December";
             default -> "Invalid day";
         };
     }
