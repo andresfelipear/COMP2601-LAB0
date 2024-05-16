@@ -84,4 +84,23 @@ public class BankClient extends Person
 
         return personDetails;
     }
+
+    /**
+     * Retrieves the alive status of the person for printing details.
+     * If the person is alive, returns "(alive)". If the person is deceased, returns "(not alive)".
+     *
+     * @return The alive status as a formatted string.
+     */
+    @Override
+    public String getAliveStatusForPrintDetails()
+    {
+        if(isAlive())
+        {
+            return "(alive)";
+        }
+        else
+        {
+            return "(not alive)";
+        }
+    }
 }
