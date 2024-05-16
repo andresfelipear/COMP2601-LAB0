@@ -38,11 +38,6 @@ public class Name
         this.last = last;
     }
 
-    public static void main(String[] args)
-    {
-        System.out.println(Name.getStringCapitalized("aNdReS aRevAlO"));
-    }
-
     /**
      * Checks if the given string is invalid. A string is invalid if:
      * It's null, it's empty, it's equals or bigger than 45 characters or contain the word "admin"
