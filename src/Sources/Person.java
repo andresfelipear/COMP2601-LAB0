@@ -21,7 +21,6 @@ public class Person
     {
         this.name = name;
         this.birthDate = birthDate;
-        deathDate = null;
     }
 
     /**

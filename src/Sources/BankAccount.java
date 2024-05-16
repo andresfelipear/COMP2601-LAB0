@@ -44,23 +44,6 @@ public class BankAccount
         this.accountNumber = accountNumber;
     }
 
-
-    /**
-     * Checks if the account number is valid.
-     * An account number is considered valid if it:
-     * - Has a length equal to ACCOUNT_LENGTH.
-     * - Contains only letters (uppercase or lowercase).
-     * @return true if the account number is valid, false otherwise.
-     */
-    private boolean isValidAccountNumber()
-    {
-        final String regex;
-
-        regex = "^[a-zA-Z]+$"; //Validates if starts and end with letter any case.
-
-        return accountNumber.length() == ACCOUNT_LENGTH && accountNumber.matches(regex);
-    }
-
     /**
      * Constructs a BankAccount object with the given client, account opened date, account closed date,
      * balance, PIN, and account number.
@@ -85,6 +68,22 @@ public class BankAccount
         this.balanceUsd = balanceUsd;
         this.pin = pin;
         this.accountNumber = accountNumber;
+    }
+
+    /**
+     * Checks if the account number is valid.
+     * An account number is considered valid if it:
+     * - Has a length equal to ACCOUNT_LENGTH.
+     * - Contains only letters (uppercase or lowercase).
+     * @return true if the account number is valid, false otherwise.
+     */
+    private boolean isValidAccountNumber()
+    {
+        final String regex;
+
+        regex = "^[a-zA-Z]+$"; //Validates if starts and end with letter any case.
+
+        return accountNumber.length() == ACCOUNT_LENGTH && accountNumber.matches(regex);
     }
 
     /**
