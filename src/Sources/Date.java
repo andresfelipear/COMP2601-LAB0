@@ -7,6 +7,7 @@
 public class Date
 {
 
+
     final int day;
     final int month;
     final int year;
@@ -49,6 +50,18 @@ public class Date
     private static final int MONTH_CODE_JUNE = 5;
     private static final int MONTH_CODE_AUGUST = 3;
     private static final int MONTH_CODE_SEP_DEC = 6;
+
+    // CONSTANTS - CENTURIES
+    private static final int START_SIXTEEN_CENTURY = 1600;
+    private static final int END_SIXTEEN_CENTURY = 1699;
+    private static final int START_SEVENTEEN_CENTURY = 1700;
+    private static final int END_SEVENTEEN_CENTURY = 1799;
+    private static final int START_EIGHTEEN_CENTURY = 1800;
+    private static final int END_EIGHTEEN_CENTURY = 1899;
+    private static final int START_TWENTIETH_CENTURY = 2000;
+    private static final int END_TWENTIETH_CENTURY = 2099;
+    private static final int START_TWENTY_ONE_CENTURY = 2100;
+    private static final int END_TWENTY_ONE_CENTURY = 2199;
 
     public Date(final int day,
                 final int month,
@@ -184,27 +197,27 @@ public class Date
      * @return The special offset as an integer.
      */
     public static int specialOffsetCenturies(int year) {
-        if(year >= 1600 && year <= 1699)
+        if(year >= START_SIXTEEN_CENTURY && year <= END_SIXTEEN_CENTURY)
         {
             return 6;
         }
-        else if(year >= 1700 && year <= 1799)
+        else if(year >= START_SEVENTEEN_CENTURY && year <= END_SEVENTEEN_CENTURY)
         {
             return 4;
         }
-        else if(year >= 1800 && year <= 1899)
+        else if(year >= START_EIGHTEEN_CENTURY && year <= END_EIGHTEEN_CENTURY)
         {
             return 2;
         }
-        else if(year >= 2000 && year <= 2099)
+        else if(year >= START_TWENTIETH_CENTURY && year <= END_TWENTIETH_CENTURY)
         {
             return 6;
         }
-        else if(year >= 2100 && year <= 2199)
+        else if(year >= START_TWENTY_ONE_CENTURY && year <= END_TWENTY_ONE_CENTURY)
         {
             return 4;
         }
-        else
+        else // any other century
         {
             return 0;
         }
@@ -256,7 +269,7 @@ public class Date
         return switch(getMonth())
         {
             case JANUARY -> "January";
-            case FEBRUARY -> "FEBRUARY";
+            case FEBRUARY -> "February";
             case MARCH -> "March";
             case APRIL -> "April";
             case MAY -> "May";

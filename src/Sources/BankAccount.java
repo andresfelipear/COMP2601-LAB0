@@ -62,6 +62,13 @@ public class BankAccount
                        int pin,
                        final String accountNumber)
     {
+        if(!isValidAccountNumber())
+        {
+            throw new IllegalArgumentException(
+                    String.format("Invalid account number. It should have exactly %s letters.",
+                                  ACCOUNT_LENGTH));
+        }
+
         this.client = client;
         this.accountOpened = accountOpened;
         this.accountClosed = accountClosed;
